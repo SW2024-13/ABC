@@ -1,0 +1,5 @@
+<% @orders.each do |e| %>
+  商品名 : <%= e.name %>, 価格: <%= e.price %>
+  <%= link_to '購入', order_path(order_id: e.id) %>
+  <br>
+<% end %>
