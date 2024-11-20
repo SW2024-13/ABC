@@ -3,3 +3,6 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   #application
 end
+
+
+#test
