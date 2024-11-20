@@ -21,4 +21,11 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to users_path
   end
+  
+  
+  def show
+    @user = User.find(params[:id])  # IDに基づいてユーザーを検索
+  end
 end
+
+
