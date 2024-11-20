@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.2].define(version: 2024_11_13_065822) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_13_072123) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-=======
-ActiveRecord::Schema[7.2].define(version: 2024_11_13_072123) do
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid"
     t.string "pass"
->>>>>>> logincontroller
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

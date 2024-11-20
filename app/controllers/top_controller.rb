@@ -1,6 +1,4 @@
 class TopController < ApplicationController
-<<<<<<< HEAD
-=======
     def main
         if session[:login_uid] 
             redirect_to tweets_path
@@ -25,5 +23,4 @@ class TopController < ApplicationController
         session.delete(:login_uid)
         redirect_to root_path
     end
->>>>>>> logincontroller
 end
