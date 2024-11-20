@@ -1,7 +1,10 @@
 class TopController < ApplicationController
     def main
         if session[:login_uid] 
-            redirect_to user_path
+            #redirect_to user_path
+            
+            user = User.find_by(uid: session[:login_uid])
+            redirect_to user_path(user.id)  # ユーザーのIDを渡してリダイレクト
         else
             render "login"
         end
@@ -14,7 +17,7 @@ class TopController < ApplicationController
             redirect_to top_main_path
         else
             flash[:alert] = "ログインに失敗しました"
-            render :new
+            render :login
         end
     end
 
