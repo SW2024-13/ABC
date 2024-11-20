@@ -1,7 +1,7 @@
 class TopController < ApplicationController
     def main
         if session[:login_uid] 
-            redirect_to tweets_path
+            redirect_to user_path
         else
             render "login"
         end
