@@ -1,14 +1,8 @@
 class TopController < ApplicationController
     def main
-        if session[:login_uid] 
-<<<<<<< HEAD
-            redirect_to top_main_path
-=======
-            #redirect_to user_path
-            
-            user = User.find_by(uid: session[:login_uid])
-            redirect_to user_path(user.id)  # ユーザーのIDを渡してリダイレクト
->>>>>>> 53f54bcb02f9ec0c5aa9b6a7cfa720e184396cb2
+        if session[:login_uid]
+            user = User.find_by(uid:session[:login_uid])
+            redirect_to user_path(user.id)
         else
             render "login"
         end
