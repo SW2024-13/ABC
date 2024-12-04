@@ -1,2 +1,26 @@
-<h1><%= @user.uid %>さんのプロフィール</h1>
-<p>UID: <%= @user.uid %></p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>学食モバイルオーダー</title>
+    </head>
+    <body>
+        <h1>学食モバイルオーダー</h1>
+        <h2><%= @user.uid %>さんようこそ</h2>
+        [今日の献立] 
+        <div class="menu">
+            かつ丼<br>
+            <img src=".jpg">
+            <p>価格: 500円</p>
+            <%= link_to "購入", root_path %><br>
+            かつ丼<br>
+            <img src=".jpg">
+            <p>価格: 500円</p>
+            <%= link_to "購入", root_path %><br>
+            かつ丼<br>
+            <img src=".jpg">
+            <p>価格: 500円</p>
+            <%= link_to "購入", root_path %><br>
+        </div>
+    </body>
+</html>

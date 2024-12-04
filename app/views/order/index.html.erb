@@ -1,16 +1,1 @@
-
-<!DOCTYPY html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>学食モバイルオーダー</title>
-    </head>
-    <body>
-        今日の献立
-    </body>
-</html>
-<% @orders.each do |e| %>
-  商品名 : <%= e.name %>, 価格: <%= e.price %>
-  <%= link_to '購入', order_path(order_id: e.id) %>
-  <br>
-<% end %>
+本当に購入しますか
