@@ -1,0 +1,11 @@
+<h1>購入確認</h1>
+
+<div>
+  <p>商品名: <%= @order.name %></p>
+  <p>価格: <%= number_to_currency(@order.price, unit: "¥") %></p>
+</div>
+
+<div style="margin-top: 20px;">
+  <%= link_to '購入を確定する', confirm_order_path(@order), method: :patch, class: 'btn btn-success' %>
+  <%= link_to 'キャンセル', orders_path, class: 'btn btn-secondary' %>
+</div>

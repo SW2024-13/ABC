@@ -25,6 +25,14 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])  # IDに基づいてユーザーを検索
+    @order1 = Order.find_by(name: '唐揚げ丼') # 適切な条件で取得
+    @order2 = Order.find_by(name: 'かつ丼')
+    @order3 = Order.find_by(name: 'カレー')
+    @order4 = Order.find_by(name: 'オムライス')
+    @order5 = Order.find_by(name: 'ピザ')
+    @order6 = Order.find_by(name: 'ラーメン')
+    @order7 = Order.find_by(name: 'とんかつ定食')
+    @order8 = Order.find_by(name: 'うどん')
   end
 end
 
