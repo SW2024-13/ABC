@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   #resources :orders
   resources :orders do
     member do
-      get :confirm
+      get :confirm   
       patch :confirm
     end
   end
   
-  
+
   root 'top#login'
   get 'order/index', to: 'order#index', as: 'index'
   #get 'order/confirm/:id', to: 'order#confirm', as: 'confirm_order'

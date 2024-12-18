@@ -6,6 +6,6 @@
 </div>
 
 <div style="margin-top: 20px;">
-  <%= link_to '購入を確定する', confirm_order_path(@order), method: :patch, class: 'btn btn-success' %>
-  <%= link_to 'キャンセル', orders_path, class: 'btn btn-secondary' %>
+  <%= link_to '購入を確定する', orders_path(@order), method: :patch, class: 'btn btn-success' %>
+  <%= link_to 'キャンセル', root_path, class: 'btn btn-secondary' %>
 </div>
