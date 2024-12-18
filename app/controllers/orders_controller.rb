@@ -1,9 +1,13 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.where(purchased: true)
+    @orders = Order.all
   end
 
   def confirm
+    @order = Order.find(params[:id])
+  end
+
+  def update
     @order = Order.find(params[:id])
 
     if @order.update(purchased: true)
@@ -11,6 +15,5 @@ class OrdersController < ApplicationController
     else
       redirect_to orders_path, alert: "購入に失敗しました。"
     end
-    @orders = Order.all
   end
 end
