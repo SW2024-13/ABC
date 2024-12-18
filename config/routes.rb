@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   #resources :orders
   resources :orders do
     member do
+      get :confirm
       patch :confirm
     end
   end
+  
 
   root 'top#login'
   get 'order/index', to: 'order#index', as: 'index'
@@ -14,9 +16,5 @@ Rails.application.routes.draw do
   get 'top/main'
   post 'top/login'
   get 'top/logout'
-  
-
-
-
 
 end
