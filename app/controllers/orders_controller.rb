@@ -16,4 +16,8 @@ class OrdersController < ApplicationController
       redirect_to orders_path, alert: "購入に失敗しました。"
     end
   end
+  def show
+    @order = Order.find(params[:id])
+  end
+
 end

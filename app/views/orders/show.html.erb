@@ -1,0 +1,8 @@
+<h1>注文詳細</h1>
+
+<p>商品名: <%= @order.name %></p>
+<p>価格: <%= number_to_currency(@order.price, unit: "¥") %></p>
+
+<div style="margin-top: 20px;">
+  <%= link_to '戻る', root_path, class: 'btn btn-primary' %>
+</div>
