@@ -26,6 +26,10 @@
     <h1>学食モバイルオーダー</h1>
     <h2><%= @user.uid %>さんようこそ</h2>
     <%= link_to 'ホームに戻る', root_path %>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> saigo
     <p>[今日の献立]</p>
     <div class="menu">
         <div class="menu-item">
@@ -37,43 +41,43 @@
         <div class="menu-item">
             かつ丼<br>
             <img src="<%= asset_path('katudon.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 600円</p>
             <%= link_to '購入', confirm_order_path(@order2.id), class: 'btn btn-primary' if @order2 %>
         </div>
         <div class="menu-item">
             カレー<br>
             <img src="<%= asset_path('kare.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 300円</p>
             <%= link_to '購入', confirm_order_path(@order3.id), class: 'btn btn-primary' if @order3 %>
         </div>
         <div class="menu-item">
             オムライス<br>
             <img src="<%= asset_path('omuraisu.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 450円</p>
             <%= link_to '購入', confirm_order_path(@order4.id), class: 'btn btn-primary' if @order4 %>
         </div>
         <div class="menu-item">
             ピザ<br>
             <img src="<%= asset_path('piza.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 1000円</p>
             <%= link_to '購入', confirm_order_path(@order5.id), class: 'btn btn-primary' if @order5 %>
         </div>
         <div class="menu-item">
             ラーメン<br>
             <img src="<%= asset_path('ramen.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 420円</p>
             <%= link_to '購入', confirm_order_path(@order6.id), class: 'btn btn-primary' if @order6 %>
         </div>
         <div class="menu-item">
             とんかつ定食<br>
             <img src="<%= asset_path('tonkatuteisyoku.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 800円</p>
             <%= link_to '購入', confirm_order_path(@order7.id), class: 'btn btn-primary' if @order7 %>
         </div>
         <div class="menu-item">
             うどん<br>
             <img src="<%= asset_path('udon.jpeg') %>" width="250" height="200">
-            <p>価格: 500円</p>
+            <p>価格: 300円</p>
             <%= link_to '購入', confirm_order_path(@order8.id), class: 'btn btn-primary' if @order8 %>
         </div>
     </div>
