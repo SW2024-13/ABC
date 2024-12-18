@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.find(params[:id])
   end
+  
+  def show
+    @order = Order.find(params[:id])
+  end
 
   def update
     @order = Order.find(params[:id])
@@ -17,3 +21,4 @@ class OrdersController < ApplicationController
     end
   end
 end
+
