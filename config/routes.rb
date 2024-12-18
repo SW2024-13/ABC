@@ -14,13 +14,4 @@ Rails.application.routes.draw do
   get 'top/main'
   post 'top/login'
   get 'top/logout'
-<<<<<<< HEAD
-  resources :orders, only: [:index]
-=======
-  
-
-
-
->>>>>>> 4528b2b222f682ecb0833c2293dfade9e13a3899
-
 end

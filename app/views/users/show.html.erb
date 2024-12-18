@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -28,9 +28,13 @@
     <%= link_to 'ホームに戻る', root_path %>
     <%= link_to "注文一覧", index_path %>
     <p>[今日の献立]</p>
+    <div class="menu">
         <div class="menu-item">
             唐揚げ丼<br>
             <img src="<%= asset_path('karaagedon.jpeg') %>" width="250" height="200">
+            <p>価格: 500円</p>
+            <%= link_to '購入', confirm_order_path(@order1.id), class: 'btn btn-primary' %>
+
         </div>
         <div class="menu-item">
             かつ丼<br>
@@ -75,6 +79,6 @@
             <%= link_to '購入', confirm_order_path(@order8.id), class: 'btn btn-primary' %>
         </div>
     </div>
-    
+   
 </body>
 </html>
