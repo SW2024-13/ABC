@@ -1,2 +1,9 @@
-本当に購入しますか?
-はい・いいえ
+<h1>購入済みの注文一覧</h1>
+
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <%= order.name %> - <%= number_to_currency(order.price, unit: "¥") %>
+    </li>
+  <% end %>
+</ul>
