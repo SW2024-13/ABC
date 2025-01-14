@@ -1,15 +1,20 @@
-<%= form_with model: @user, local: true do |f| %>
-  <p>
-    <%= f.label :uid, 'UID' %>
-    <%= f.text_field :uid %>
-  </p>
-  <p>
-    <%= f.label :pass, 'パスワード' %>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation, 'パスワード(確認)' %>
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <%= f.submit '登録' %>
-<% end %>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f9f9f9; flex-direction: column;">
+  <h1 style="font-family: Arial, sans-serif; color: #333; margin-bottom: 20px;">ユーザー登録</h1>
+  <div style="width: 300px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <%= form_with model: @user, local: true do |f| %>
+      <div style="margin-bottom: 15px;">
+        <%= f.label :uid, 'UID', style: 'font-size: 14px; color: #555;' %><br>
+        <%= f.text_field :uid, style: 'border: 1px solid #ccc; border-radius: 25px; padding: 10px; width: 100%; box-sizing: border-box;' %>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <%= f.label :pass, 'パスワード', style: 'font-size: 14px; color: #555;' %><br>
+        <%= f.password_field :password, style: 'border: 1px solid #ccc; border-radius: 25px; padding: 10px; width: 100%; box-sizing: border-box;' %>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <%= f.label :password_confirmation, 'パスワード(確認)', style: 'font-size: 14px; color: #555;' %><br>
+        <%= f.password_field :password_confirmation, style: 'border: 1px solid #ccc; border-radius: 25px; padding: 10px; width: 100%; box-sizing: border-box;' %>
+      </div>
+      <%= f.submit '登録', style: 'width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 14px;' %>
+    <% end %>
+  </div>
+</div>

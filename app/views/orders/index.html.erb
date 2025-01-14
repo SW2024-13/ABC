@@ -1,2 +1,73 @@
-<h1>ご注文ありがとうございます。</h1>
-<%= link_to 'ホームに戻る',root_path %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注文完了</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .thank-you-container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    .thank-you-container h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .thank-you-container p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+      background-color: #007BFF;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>注文ありがとうございます！</h1>
+    <p>注文が正常に完了しました。</p>
+    <% if @user %>
+      <%= link_to '戻る', user_path(@user), class: 'btn' %>
+    <% else %>
+      <%= link_to 'ホームに戻る', root_path, class: 'btn' %>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

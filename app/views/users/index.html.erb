@@ -1,9 +1,35 @@
-<% @users.each do |e| %>
-  uid: <%= e.uid %>, pass: <%= e.pass %>
-  <%= link_to '削除', user_path(e), data: { turbo_method: :delete } %>
-  <br>
-<% end %>
+<div style="display: flex; flex-direction: column; align-items: center; padding: 20px; background-color: #f9f9f9; min-height: 100vh;">
+  <h1 style="font-family: Arial, sans-serif; color: #333; margin-bottom: 20px;">ユーザー一覧</h1>
+  
+  <table style="border-collapse: collapse; width: 80%; max-width: 600px; margin-bottom: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f0f0f0; text-align: left;">UID</th>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f0f0f0; text-align: left;">パスワード</th>
+        <th style="border: 1px solid #ddd; padding: 10px; background-color: #f0f0f0; text-align: left;">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><%= user.uid %></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">
+            <% if Rails.env.development? %>
+              <%= user.pass %>
+            <% else %>
+              <em>非表示</em>
+            <% end %>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 10px;">
+            <%= link_to '削除', user_path(user), data: { turbo_method: :delete }, style: 'color: red; text-decoration: none; cursor: pointer;' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to "新規追加", new_user_path %>
-
-<%= link_to "ログイン", root_path %>
+  <div style="display: flex; gap: 10px;">
+    <%= link_to "新規追加", new_user_path, style: 'padding: 10px 15px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;' %>
+    <%= link_to "ログイン", root_path, style: 'padding: 10px 15px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;' %>
+  </div>
+</div>
