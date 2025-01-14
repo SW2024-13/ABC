@@ -1,86 +1,146 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>学食モバイルオーダー</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .links a {
+            margin: 0 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
         .menu {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px; /* アイテム間の隙間を調整 */
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .menu-item {
+            background: white;
             text-align: center;
-            border: 1px solid #ccc; /* アイテムの枠線 */
-            padding: 10px;
-            border-radius: 5px; /* 角丸 */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加 */
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        img {
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .menu-item img {
             max-width: 100%;
             height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .menu-item p {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+        .menu-item .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .menu-item .btn:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
     <h1>学食モバイルオーダー</h1>
     <h2><%= @user.uid %>さんようこそ</h2>
-    <%= link_to 'ホームに戻る', root_path %>
-<<<<<<< HEAD
-=======
-    
->>>>>>> saigo
-    <p>[今日の献立]</p>
+    <div class="links">
+        <%= link_to 'ホームに戻る', root_path, class: 'btn' %>
+        <%= link_to '注文一覧', index_path, class: 'btn' %>
+    </div>
+    <p style="text-align: center; font-weight: bold; color: #555;">[今日の献立]</p>
     <div class="menu">
         <div class="menu-item">
             唐揚げ丼<br>
-            <img src="<%= asset_path('karaagedon.jpeg') %>" width="250" height="200">
+            <img src="<%= asset_path('karaagedon.jpeg') %>" alt="唐揚げ丼">
             <p>価格: 500円</p>
-            <%= link_to '購入', confirm_order_path(@order1.id), class: 'btn btn-primary' if @order1 %>
+            <a class="btn btn-primary" href="/orders/37/confirm">購入</a>
         </div>
         <div class="menu-item">
             かつ丼<br>
-            <img src="<%= asset_path('katudon.jpeg') %>" width="250" height="200">
-            <p>価格: 600円</p>
-            <%= link_to '購入', confirm_order_path(@order2.id), class: 'btn btn-primary' if @order2 %>
+            <img src="<%= asset_path('katudon.jpeg') %>" alt="かつ丼">
+            <p>価格: 500円</p>
+            <a class="btn btn-primary" href="/orders/39/confirm">購入</a>
         </div>
         <div class="menu-item">
             カレー<br>
-            <img src="<%= asset_path('kare.jpeg') %>" width="250" height="200">
-            <p>価格: 300円</p>
-            <%= link_to '購入', confirm_order_path(@order3.id), class: 'btn btn-primary' if @order3 %>
+            <img src="<%= asset_path('kare.jpeg') %>" alt="カレー">
+            <p>価格: 400円</p>
+            <a class="btn btn-primary" href="/orders/40/confirm">購入</a>
         </div>
         <div class="menu-item">
             オムライス<br>
-            <img src="<%= asset_path('omuraisu.jpeg') %>" width="250" height="200">
+            <img src="<%= asset_path('omuraisu.jpeg') %>" alt="オムライス">
             <p>価格: 450円</p>
-            <%= link_to '購入', confirm_order_path(@order4.id), class: 'btn btn-primary' if @order4 %>
+            <a class="btn btn-primary" href="/orders/41/confirm">購入</a>
         </div>
         <div class="menu-item">
             ピザ<br>
-            <img src="<%= asset_path('piza.jpeg') %>" width="250" height="200">
+            <img src="<%= asset_path('piza.jpeg') %>" alt="ピザ">
             <p>価格: 1000円</p>
-            <%= link_to '購入', confirm_order_path(@order5.id), class: 'btn btn-primary' if @order5 %>
+            <a class="btn btn-primary" href="/orders/42/confirm">購入</a>
         </div>
         <div class="menu-item">
             ラーメン<br>
-            <img src="<%= asset_path('ramen.jpeg') %>" width="250" height="200">
-            <p>価格: 420円</p>
-            <%= link_to '購入', confirm_order_path(@order6.id), class: 'btn btn-primary' if @order6 %>
+            <img src="<%= asset_path('ramen.jpeg') %>" alt="ラーメン">
+            <p>価格: 300円</p>
+            <a class="btn btn-primary" href="/orders/43/confirm">購入</a>
         </div>
         <div class="menu-item">
             とんかつ定食<br>
-            <img src="<%= asset_path('tonkatuteisyoku.jpeg') %>" width="250" height="200">
-            <p>価格: 800円</p>
-            <%= link_to '購入', confirm_order_path(@order7.id), class: 'btn btn-primary' if @order7 %>
+            <img src="<%= asset_path('tonkatuteisyoku.jpeg') %>" alt="とんかつ定食">
+            <p>価格: 500円</p>
+            <a class="btn btn-primary" href="/orders/44/confirm">購入</a>
         </div>
         <div class="menu-item">
             うどん<br>
-            <img src="<%= asset_path('udon.jpeg') %>" width="250" height="200">
-            <p>価格: 300円</p>
-            <%= link_to '購入', confirm_order_path(@order8.id), class: 'btn btn-primary' if @order8 %>
+            <img src="<%= asset_path('udon.jpeg') %>" alt="うどん">
+            <p>価格: 500円</p>
+            <a class="btn btn-primary" href="/orders/45/confirm">購入</a>
         </div>
     </div>
-   
 </body>
 </html>

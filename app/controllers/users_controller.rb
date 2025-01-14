@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @user = User.first  # 必要に応じて適切なユーザーを設定
   end
 
   def new
@@ -24,7 +25,12 @@ class UsersController < ApplicationController
   
   
   def show
-    @user = User.find(params[:id])  # IDに基づいてユーザーを検索
+    @user = User.find_by(id: params[:id])
+
+    if @user.nil?
+      redirect_to root_path, alert: 'ユーザーが見つかりませんでした。'
+      return
+    end
     @order1 = Order.find_by(name: '唐揚げ丼') # 適切な条件で取得
     @order2 = Order.find_by(name: 'かつ丼')
     @order3 = Order.find_by(name: 'カレー')

@@ -4,5 +4,5 @@
 <p>価格: <%= number_to_currency(@order.price, unit: "¥") %></p>
 
 <div style="margin-top: 20px;">
-  <%= link_to '戻る', root_path, class: 'btn btn-primary' %>
+  <%= link_to '戻る', @order.present? ? order_path(@order) : orders_path, class: 'btn btn-primary' %>
 </div>

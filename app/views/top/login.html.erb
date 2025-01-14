@@ -1,15 +1,36 @@
-<h1 class="text-center mb-4">学食モバイルオーダーアプリ</h1>
-<%= form_with url: '/top/login', method: :post, local: true do |f| %>
-    <p>
-        <%= f.label :uid, 'ユーザーID' %>
-        <%= f.text_field :uid %>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f9f9f9; flex-direction: column;">
+  <h1 style="font-family: Arial, sans-serif; color: #333; margin-bottom: 20px;">学食モバイルオーダーアプリ</h1>
+  <h2 style="font-family: Arial, sans-serif; color: #666; margin-bottom: 30px;">ログイン</h2>
+  <div style="width: 300px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <%= form_with url: '/top/login', method: :post, local: true do |f| %>
+      <div style="margin-bottom: 15px;">
+        <%= f.label :uid, 'ユーザーID', style: 'font-size: 14px; color: #555;' %><br>
+        <%= f.text_field :uid, style: 'border: 1px solid #ccc; border-radius: 25px; padding: 10px; width: 100%; box-sizing: border-box;' %>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <%= f.label :pass, 'パスワード', style: 'font-size: 14px; color: #555;' %><br>
+        <%= f.password_field :pass, id: 'password', style: 'border: 1px solid #ccc; border-radius: 25px; padding: 10px; width: 100%; box-sizing: border-box;' %>
+        <button type="button" onclick="togglePasswordVisibility()" style="margin-top: 5px; font-size: 12px; background: none; border: none; color: #007BFF; cursor: pointer;">表示</button>
+      </div>
+      <%= f.submit 'ログイン', style: 'width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 14px;' %>
+    <% end %>
+    <p style="margin-top: 15px; font-size: 14px;">
+      <%= link_to 'ユーザ登録', new_user_path, style: 'color: #007BFF; text-decoration: none;' %> | 
+      <%= link_to 'ユーザ一覧', users_path, style: 'color: #007BFF; text-decoration: none;' %>
     </p>
-    <p>
-        <%= f.label :pass, 'パスワード' %>
-        <%= f.password_field :pass %>
-    </p>
-    <%= f.submit 'ログイン' %>
-<% end %>
+  </div>
+</div>
 
-<p><%= link_to 'ユーザ登録', new_user_path %></p>
-<p><%= link_to 'ユーザ一覧', users_path %></p>
+<script>
+  function togglePasswordVisibility() {
+    const passwordField = document.getElementById('password');
+    const button = event.target;
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      button.textContent = '非表示';
+    } else {
+      passwordField.type = 'password';
+      button.textContent = '表示';
+    }
+  }
+</script>
